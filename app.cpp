@@ -50,7 +50,7 @@ public:
             }
         }
         cout<< width << " " << height << " " << channels << "\n";
-        convertToImage("BlackAndWhite.jpg", dup);
+        convertToImage("Processed Images/BlackAndWhite.jpg", blackndwhite);
     }
 
     void horizontalFlip() {
@@ -65,7 +65,7 @@ public:
             }
         }
 
-        convertToImage("HorizontalFlip.jpg", flippedImg);
+        convertToImage("Processed Images/HorizontalFlip.jpg", flippedImg);
 
         delete[] flippedImg;
     }
@@ -85,7 +85,7 @@ int main()
         ImageProcessor image;
         image.loadImage(file_name);
 
-        cout << "Available Operations : \n1. Black and White Image 1 \n2. Operation 2 \n3.Exit \nSelect Operation: ";
+        cout << "Available Operations : \n1. Black and White Image 1 \n2. Horizontal Flip 2 \n3.Exit \nSelect Operation: ";
         cin >> choice;
         if (choice == 1)
         {                                     
@@ -94,7 +94,7 @@ int main()
         }
         else if (choice == 2)
         {
-            image.horizontalFlip();    // operation2
+            image.horizontalFlip();    // Horizontal Flip
         }
         else if (choice == 3)
         {
