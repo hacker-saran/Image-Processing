@@ -19,7 +19,6 @@ public:
     void loadImage(string file_name)
     {
         
-
         img = stbi_load(file_name.c_str(), &width, &height, &channels, 0);
         if (img == 0)
         {
