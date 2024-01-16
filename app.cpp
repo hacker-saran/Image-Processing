@@ -13,10 +13,12 @@ class ImageProcessor {
 private:
     int width, height, channels;
     unsigned char* img;
+    string img_name;
 
 public:
     int loadImage(string file_name) {        
         img = stbi_load(file_name.c_str(), &width, &height, &channels, 0);
+        img_name = file_name.substr(0,file_name.find("."));
         if (img == 0) {
             cout << "Error loading image file..!" << endl;
             if (stbi_failure_reason()) {
@@ -50,7 +52,8 @@ public:
                 blackndwhite[i + j] = (mean < 128) ? 0 : 255;
             }
         }
-        convertToImage("Processed Images/bw_image.jpg", blackndwhite);
+        
+        convertToImage("Processed Images/"+img_name+"_bw_image.jpg", blackndwhite);
         delete[] blackndwhite;
     }
 
@@ -65,7 +68,7 @@ public:
                 }
             }
         }
-        convertToImage("Processed Images/hflipped_image.jpg", flippedImg);
+        convertToImage("Processed Images/"+img_name+"_hflipped_image.jpg", flippedImg);
         delete[] flippedImg;
     }
 
@@ -80,7 +83,7 @@ public:
                 }
             }
         }
-        convertToImage("Processed Images/vflipped_image.jpg", flippedImg);
+        convertToImage("Processed Images/"+img_name+"_vflipped_image.jpg", flippedImg);
         delete[] flippedImg;
     }
 
@@ -105,7 +108,7 @@ public:
                 }
             }
         }
-        convertToImage("Processed Images/vignette_image.jpg", vignetteImg);
+        convertToImage("Processed Images/"+img_name+"_vignette_image.jpg", vignetteImg);
         delete[] vignetteImg;
     }
 
@@ -134,7 +137,7 @@ public:
                 }
             }
         }
-        convertToImage("Processed Images/sharpened_image.jpg", sharpenedImg);
+        convertToImage("Processed Images/"+img_name+"_sharpened_image.jpg", sharpenedImg);
         delete[] sharpenedImg;
     }
 
@@ -152,7 +155,7 @@ public:
                 }
             }
         }
-        convertToImage("Processed Images/contrasted_image.jpg", contrastImg);
+        convertToImage("Processed Images/"+img_name+"_contrasted_image.jpg", contrastImg);
         delete[] contrastImg;
     }
 
