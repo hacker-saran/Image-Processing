@@ -200,6 +200,7 @@ int main()
         }
         else if (choice==7) {
             cout << "Good Bye\n";
+            // free(image);
             break;
         }
         else {
