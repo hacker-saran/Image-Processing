@@ -56,6 +56,7 @@ public:
         convertToImage("Processed Images/"+img_name+"_bw_image.jpg", blackndwhite);
         delete[] blackndwhite;
     }
+    
 
     void horizontalFlip() {
         unsigned char* flippedImg = new unsigned char[width * height * channels];
